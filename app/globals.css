@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * One palette, defined once. Tailwind's config maps these to `bg-surface`,
+ * `text-muted` and friends, so a colour is never spelled out in a component.
+ */
+:root {
+  --tonearm-bg: 10 10 14;
+  --tonearm-surface: 20 20 28;
+  --tonearm-surface-raised: 28 28 38;
+  --tonearm-line: 44 44 58;
+  --tonearm-fg: 236 236 242;
+  --tonearm-muted: 141 141 160;
+  --tonearm-accent: 233 180 76;
+  --tonearm-accent-soft: 124 108 240;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--tonearm-bg));
+  color: rgb(var(--tonearm-fg));
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbars that do not shout in a dark UI. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--tonearm-line)) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--tonearm-line));
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+@layer components {
+  /* The range input the player bar uses for seek and volume. */
+  .tonearm-range {
+    @apply h-1 w-full cursor-pointer appearance-none rounded-full bg-line;
+  }
+
+  .tonearm-range::-webkit-slider-thumb {
+    @apply h-3 w-3 appearance-none rounded-full bg-fg opacity-0 transition-opacity;
+  }
+
+  .tonearm-range:hover::-webkit-slider-thumb,
+  .tonearm-range:focus-visible::-webkit-slider-thumb {
+    @apply opacity-100;
+  }
+
+  .tonearm-range::-moz-range-thumb {
+    @apply h-3 w-3 rounded-full border-0 bg-fg;
+  }
+}

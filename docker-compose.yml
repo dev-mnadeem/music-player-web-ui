@@ -1,0 +1,14 @@
+services:
+  tonearm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tonearm:local
+    ports:
+      - '3000:3000'
+    environment:
+      # The demo catalogue needs no credentials, which is why the container
+      # boots into a populated, playable app with no extra configuration.
+      NEXT_PUBLIC_CATALOGUE_PROVIDER: fixture
+      MOOD_PLANNER: local
+    restart: unless-stopped

@@ -236,3 +236,7 @@ A native production run was opened in Chromium. The demo track advanced through
 the HTML audio element and paused when requested. This verifies the synthesised
 fixture audio; it does not verify Spotify streaming.
 [Recorded checks](docs/native-verification.json). Use Node.js 22.12 or newer.
+
+## Author
+
+[**Muhammad Nadeem**](https://github.com/dev-mnadeem)

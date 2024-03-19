@@ -229,3 +229,10 @@ tests/            vitest suite
 - Not a streaming service. The demo audio is synthesised tones, deliberately: a
   player with nothing to play is a screenshot, not a feature.
 - Not multi-user. The demo library is a `localStorage` key on your own browser.
+
+## Playback check
+
+A native production run was opened in Chromium. The demo track advanced through
+the HTML audio element and paused when requested. This verifies the synthesised
+fixture audio; it does not verify Spotify streaming.
+[Recorded checks](docs/native-verification.json). Use Node.js 22.12 or newer.
